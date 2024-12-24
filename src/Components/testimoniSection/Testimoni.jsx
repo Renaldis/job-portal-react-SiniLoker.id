@@ -43,7 +43,7 @@ export default function Testimoni() {
       <h1 className="text-xl font-semibold text-black text-start ml-8 mb-8">
         1 Juta+ pelamar terbantu dengan loker di SiniLoker.id
       </h1>
-      <div className="h-96 w-[100%] mx-auto p-8">
+      <div className="h-96 w-[100%] mx-auto px-8">
         <Carousel>
           {groupedTesti.map((group, index) => (
             <div key={index} className="flex justify-center gap-4 items-center">

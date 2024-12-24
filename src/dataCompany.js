@@ -1,7 +1,7 @@
 const jobListings = [
   {
     company_image_url:
-      "https://lelogama.go-jek.com/cms_editor/2021/05/28/info-gojek-2.png",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkuyF-xQXlkWGWTy1JYQ3pDL81li09QfwTWw&s",
     company_name: "Gojek",
     title: "Software Engineer",
     company_city: "Jakarta",
@@ -14,7 +14,7 @@ const jobListings = [
   },
   {
     company_image_url:
-      "https://assets.promediateknologi.id/crop/0x0:0x0/750x500/webp/photo/2023/06/26/bca-1-3894707539.jpg",
+      "https://logowik.com/content/uploads/images/bca-bank-central-asia1235.jpg",
     company_name: "Bank Central Asia (BCA)",
     title: "Financial Analyst",
     company_city: "Jakarta",
@@ -54,7 +54,7 @@ const jobListings = [
   },
   {
     company_image_url:
-      "https://w7.pngwing.com/pngs/741/278/png-transparent-tokopedia-android-online-shopping-android-shopping-mall-owl-bird-thumbnail.png",
+      "https://seeklogo.com/images/T/tokopedia-logo-40654CCDD6-seeklogo.com.png",
     company_name: "Tokopedia",
     title: "Product Manager",
     company_city: "Jakarta",
@@ -67,7 +67,7 @@ const jobListings = [
   },
   {
     company_image_url:
-      "https://e7.pngegg.com/pngimages/608/4/png-clipart-spbu-pertamina-pasti-pas-spbu-64-781-14-logo-graphics-pertamina-balongan-gambar-mobil-angle-company.png",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzsNUMFTvP2SY_otM5kkmCtUo7Art79E2OhA&s",
     company_name: "Pertamina",
     title: "Mechanical Engineer",
     company_city: "Balikpapan",
@@ -80,7 +80,7 @@ const jobListings = [
   },
   {
     company_image_url:
-      "https://w7.pngwing.com/pngs/674/919/png-transparent-pt-perusahaan-gas-negara-tbk-pertamina-natural-gas-joint-company-negara-blue-text-trademark.png",
+      "https://asset.kompas.com/crops/8LqeMy6akqbT16ad3iWTG5FebE8=/0x0:1000x667/750x500/data/photo/2019/11/13/5dcb80b9e6397.jpg",
     company_name: "Perusahaan Gas Negara (PGN)",
     title: "HR Manager",
     company_city: "Jakarta",
@@ -93,7 +93,7 @@ const jobListings = [
   },
   {
     company_image_url:
-      "https://w7.pngwing.com/pngs/439/412/png-transparent-bank-indonesia-mandiri-banks-in-indonesia-logo-badge-icon-thumbnail.png",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMXAvyfQ1jaXQUTVdm5w2JGnfQcJLW1hHmkw&s",
     company_name: "Bank Mandiri",
     title: "Risk Management Analyst",
     company_city: "Jakarta",
