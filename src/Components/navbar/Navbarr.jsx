@@ -34,9 +34,9 @@ export default function Navbarr({ ...props }) {
           <span>Beranda</span>
         </Navbar.Link>
         <Navbar.Link
-          href="/lowongan-kerja"
+          href="/job-vacancies"
           className={`text-base ${
-            location.pathname === "/lowongan-kerja"
+            location.pathname === "/job-vacancies"
               ? "text-blue-600 font-bold"
               : ""
           }`}

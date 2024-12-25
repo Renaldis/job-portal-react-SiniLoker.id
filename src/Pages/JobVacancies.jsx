@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
 
-import HeroSection from "../Components/HeroSection/HeroSection";
+import JobSection from "../Components/jobSection/JobSection.jsx";
 import JobVacanciesSection from "../Components/jobVacanciesSection/JobVacanciesSection";
-import MitraSection from "../Components/mitraSection/MitraSection";
-import Testimoni from "../Components/testimoniSection/Testimoni";
 import { JobContext } from "../context/JobContext.jsx";
 
 // DATA
 import ListCompany from "../dataCompany.js";
 
-export default function Home() {
+const JobVacancies = () => {
   const [data, setData] = useState(null);
   const [filteredData, setFilteredData] = useState(null);
   const [inputSearch, setInputSearch] = useState("");
@@ -18,14 +16,15 @@ export default function Home() {
 
   useEffect(() => {
     setData(ListCompany);
-    setFilteredData(ListCompany);
+    setFilteredData(ListCompany); // Set initial data to filteredData
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrorSearching(false);
+
     if (inputSearch.trim() === "") {
       setFilteredData(data);
+      setErrorSearching(false);
     } else {
       const filteredDatas = data.filter((item) => {
         const searchQuery = inputSearch.toLowerCase();
@@ -48,6 +47,7 @@ export default function Home() {
 
         return (isMatchingSearch || isMatchingJobStatus) && isMatchingLocation;
       });
+
       if (filteredDatas.length === 0) {
         setErrorSearching(true);
       } else {
@@ -64,7 +64,6 @@ export default function Home() {
   const handleInputFilterChange = (value) => {
     setFindLocs(value);
   };
-
   const JbCart = {
     data,
     filteredData: filteredData,
@@ -74,14 +73,15 @@ export default function Home() {
     handleInputFilterChange,
     errorSearching,
   };
+
   return (
     <JobContext.Provider value={JbCart}>
       <main>
-        <HeroSection />
+        <JobSection />
         <JobVacanciesSection />
-        <Testimoni />
-        <MitraSection />
       </main>
     </JobContext.Provider>
   );
-}
+};
+
+export default JobVacancies;

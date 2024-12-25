@@ -3,10 +3,9 @@ import { JobContext } from "../../context/JobContext";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import heroSiniLoker from "../../assets/heroSiniLoker.png";
-import LocMenu from "../heroSection/LocMenu";
+import LocMenu from "./LocMenu";
 
-export default function HeroSection() {
+export default function JobSection() {
   const [isActive, setIsActive] = useState(false);
   const {
     handleSubmit,
@@ -35,21 +34,23 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="bg-blue-500 flex flex-row">
-      <div className="w-full h-[400px] md:h-full md:w-3/4 lg:w-1/2 flex flex-col justify-start mt-16 p-8 gap-8">
-        <h1 className="text-2xl font-semibold text-center md:text-start md:text-4xl  text-white">
-          Cari Kerja <span className="font-bold">#makin mudah</span> pake
-          siniLoker.id
-        </h1>
-        <div className="cardFilter rounded-lg bg-white w-[95%] p-5 border">
+      <div className="w-full h-[400px] md:h-full justify-start p-14 gap-8">
+        <div className="cardFilter rounded-lg bg-white w-[95%] p-5 text-center">
           <form onSubmit={handleSubmit} className="input-search">
-            <div className="flex gap-2">
+            <div className="flex gap-2 items-center justify-center">
               <input
                 type="text"
                 placeholder="Masukkan Kata Kunci"
-                className="w-full rounded-lg"
+                className="w-[50%] rounded-lg"
                 name="input-search"
                 value={inputSearch}
                 onChange={(e) => handleInputSearchChange(e.target.value)}
+              />
+              <LocMenu
+                handleClick={handleClickLocMenu}
+                handleLocationClick={handleLocationClick}
+                isActive={isActive}
+                findLoc={findLoc}
               />
               <button
                 className="group bg-blue-500 hover:bg-blue-800 p-2 rounded-xl"
@@ -62,14 +63,8 @@ export default function HeroSection() {
                 />
               </button>
             </div>
-            <LocMenu
-              handleClick={handleClickLocMenu}
-              handleLocationClick={handleLocationClick}
-              isActive={isActive}
-              findLoc={findLoc}
-            />
           </form>
-          <div className="favorit-search mt-5 flex flex-wrap gap-3 items-center">
+          <div className="favorit-search mt-5 flex flex-wrap gap-3 items-center justify-center">
             <span className="text-sm">
               <strong>Paling sering dicari : </strong>
             </span>
@@ -88,15 +83,12 @@ export default function HeroSection() {
               </ul>
             </div>
           </div>
-          <div className="pt-5 text-center">
+          <div className="pt-5">
             <h1 className="text-red-500 font-normal">
               {errorSearching && "Data Tidak Ditemukan."}
             </h1>
           </div>
         </div>
-      </div>
-      <div className="md:w-3/6 md:mt-48 lg:w-2/4 lg:mt-32 hidden md:block">
-        <img src={heroSiniLoker} alt="SiniLoker-Hero" className="w-full" />
       </div>
     </section>
   );

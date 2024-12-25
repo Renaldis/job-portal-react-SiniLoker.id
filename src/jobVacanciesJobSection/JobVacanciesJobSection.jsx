@@ -2,7 +2,7 @@ import CardJob from "./CardJob";
 import { useContext } from "react";
 import { JobContext } from "../../context/JobContext";
 
-export default function jobVacanciesSection() {
+export default function JobVacanciesJobSection() {
   const { filteredData } = useContext(JobContext);
 
   // Cek jika data tersedia dan bukan null
@@ -16,7 +16,6 @@ export default function jobVacanciesSection() {
       </section>
     );
   }
-
   return (
     <section id="jobVacanciesSection" className="mb-10">
       <h1 className="ml-8 mt-10 text-xl font-semibold text-black">
@@ -28,7 +27,7 @@ export default function jobVacanciesSection() {
         ))}
       </div>
       <div className="flex items-center gap-5 justify-center ml-8 mt-3 text-lg font-normal text-blue-500 hover:text-blue-800 transition-all duration-200">
-        <a href="/job-vacancies">
+        <a href="" className="">
           Lihat Lowongan Lain nya <i className="fas fa-arrow-right" />
         </a>
       </div>
