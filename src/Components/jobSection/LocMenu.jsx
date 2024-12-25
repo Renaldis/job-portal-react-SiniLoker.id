@@ -22,7 +22,7 @@ export default function LocMenu({
 
   return (
     <>
-      <div className="border rounded-lg w-[30%] py-2 border-slate-500">
+      <div className="border rounded-lg w-[50%] md:w-[30%] py-2 border-slate-500">
         <button
           className=""
           onClick={handleClick}

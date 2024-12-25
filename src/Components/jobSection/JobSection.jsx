@@ -33,15 +33,15 @@ export default function JobSection() {
   }, [findLoc]);
 
   return (
-    <section id="hero" className="bg-blue-500 flex flex-row">
+    <section id="hero" className="bg-blue-500">
       <div className="w-full h-[400px] md:h-full justify-start p-14 gap-8">
         <div className="cardFilter rounded-lg bg-white w-[95%] p-5 text-center">
           <form onSubmit={handleSubmit} className="input-search">
-            <div className="flex gap-2 items-center justify-center">
+            <div className="flex flex-col md:flex-row gap-2 items-center justify-center">
               <input
                 type="text"
                 placeholder="Masukkan Kata Kunci"
-                className="w-[50%] rounded-lg"
+                className="w-[100%] sm:w-[50%] rounded-lg"
                 name="input-search"
                 value={inputSearch}
                 onChange={(e) => handleInputSearchChange(e.target.value)}
@@ -69,7 +69,7 @@ export default function JobSection() {
               <strong>Paling sering dicari : </strong>
             </span>
             <div className="title-favorit text-sm">
-              <ul className="flex gap-3">
+              <ul className="flex flex-col sm:flex-row gap-3">
                 <li>
                   <a href="#" className="border-b border-black p-0">
                     Frontend Developer

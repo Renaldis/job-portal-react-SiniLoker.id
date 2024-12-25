@@ -1,12 +1,12 @@
 import CardJob from "./CardJob";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { JobContext } from "../../context/JobContext";
 
-export default function jobVacanciesSection() {
+export default function JobVacanciesSection() {
   const { filteredData } = useContext(JobContext);
 
-  // Cek jika data tersedia dan bukan null
   if (!filteredData || filteredData.length === 0) {
+    // Cek jika data tersedia dan bukan null
     return (
       <section id="jobVacanciesSection" className="mb-10">
         <h1 className="ml-8 mt-10 text-xl font-semibold text-black">
