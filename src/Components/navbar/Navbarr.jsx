@@ -44,11 +44,9 @@ export default function Navbarr({ ...props }) {
           <span>Lowongan Kerja</span>
         </Navbar.Link>
         <Navbar.Link
-          href="/tentang-kami"
+          href="/about"
           className={`text-base ${
-            location.pathname === "/tentang-kami"
-              ? "text-blue-600 font-bold"
-              : ""
+            location.pathname === "/about" ? "text-blue-600 font-bold" : ""
           }`}
         >
           <span>Tentang Kami</span>

@@ -41,7 +41,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="text-center text-slate-300 text-sm md:text-base">
-        &copy; 2024 SiniLoker.id. All rights reserved.
+        <span>&copy; 2024 Copyright. All rights reserved.</span>
+        <p className="text-sm mt-2">SiniLoker.id by Renaldi Saputra</p>
       </div>
     </footer>
   );
