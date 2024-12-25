@@ -1,9 +1,12 @@
 "use client";
 
 import { Button, Navbar } from "flowbite-react";
+import { useLocation } from "react-router-dom";
 import LogoSiniLoker from "../../assets/siniLoker2.png";
 
 export default function Navbarr({ ...props }) {
+  const location = useLocation();
+
   return (
     <Navbar fluid rounded {...props}>
       <Navbar.Brand href="/">
@@ -24,13 +27,31 @@ export default function Navbarr({ ...props }) {
       <Navbar.Collapse>
         <Navbar.Link
           href="/"
-          active
-          className="text-base border-b-2 border-b-sky-200"
+          className={`text-base ${
+            location.pathname === "/" ? "text-blue-600 font-bold" : ""
+          }`}
         >
           <span>Beranda</span>
         </Navbar.Link>
-        <Navbar.Link href="#" className="text-base">
+        <Navbar.Link
+          href="/lowongan-kerja"
+          className={`text-base ${
+            location.pathname === "/lowongan-kerja"
+              ? "text-blue-600 font-bold"
+              : ""
+          }`}
+        >
           <span>Lowongan Kerja</span>
+        </Navbar.Link>
+        <Navbar.Link
+          href="/tentang-kami"
+          className={`text-base ${
+            location.pathname === "/tentang-kami"
+              ? "text-blue-600 font-bold"
+              : ""
+          }`}
+        >
+          <span>Tentang Kami</span>
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>

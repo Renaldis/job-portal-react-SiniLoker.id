@@ -1,4 +1,4 @@
-import ListCompany from "../../DataCompany";
+import ListCompany from "../../dataCompany";
 import CardJob from "./CardJob";
 import { useEffect, useState } from "react";
 
@@ -18,6 +18,11 @@ export default function jobVacanciesSection() {
           data.map((res, index) => {
             return <CardJob key={index} res={res} />;
           })}
+      </div>
+      <div className="flex items-center gap-5 justify-center ml-8 mt-3 text-lg font-normal text-blue-500 hover:text-blue-800 transition-all duration-200">
+        <a href="" className="">
+          Lihat Lowongan Lain nya <i className="fas fa-arrow-right" />
+        </a>
       </div>
     </section>
   );

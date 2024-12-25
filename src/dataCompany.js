@@ -11,6 +11,7 @@ const jobListings = [
     job_tenure: "Full-time",
     salary_min: 10000000,
     salary_max: 15000000,
+    job_status: 0,
   },
   {
     company_image_url:
@@ -24,6 +25,7 @@ const jobListings = [
     job_tenure: "Full-time",
     salary_min: 8000000,
     salary_max: 12000000,
+    job_status: 1,
   },
   {
     company_image_url:
@@ -37,6 +39,7 @@ const jobListings = [
     job_tenure: "Contract",
     salary_min: 12000000,
     salary_max: 20000000,
+    job_status: 1,
   },
   {
     company_image_url:
@@ -44,13 +47,13 @@ const jobListings = [
     company_name: "Unilever Indonesia",
     title: "Supply Chain Planner",
     company_city: "Surabaya",
-
     job_qualification:
       "Bachelor's degree in Supply Chain, Business, or related field. Strong communication skills.",
     job_type: "On-Site",
     job_tenure: "Contract",
     salary_min: 8000000,
     salary_max: 12000000,
+    job_status: 1,
   },
   {
     company_image_url:
@@ -64,6 +67,7 @@ const jobListings = [
     job_tenure: "Contract",
     salary_min: 15000000,
     salary_max: 25000000,
+    job_status: 0,
   },
   {
     company_image_url:
@@ -77,6 +81,7 @@ const jobListings = [
     job_tenure: "Full-time",
     salary_min: 12000000,
     salary_max: 18000000,
+    job_status: 1,
   },
   {
     company_image_url:
@@ -90,6 +95,7 @@ const jobListings = [
     job_tenure: "Full-time",
     salary_min: 10000000,
     salary_max: 15000000,
+    job_status: 1,
   },
   {
     company_image_url:
@@ -103,6 +109,7 @@ const jobListings = [
     job_tenure: "Contract",
     salary_min: 9000000,
     salary_max: 14000000,
+    job_status: 1,
   },
   {
     company_image_url:
@@ -116,6 +123,7 @@ const jobListings = [
     job_tenure: "Full-time",
     salary_min: 13000000,
     salary_max: 20000000,
+    job_status: 1,
   },
 ];
 

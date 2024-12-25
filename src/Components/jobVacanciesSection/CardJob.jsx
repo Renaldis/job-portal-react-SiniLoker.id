@@ -8,7 +8,7 @@ export default function CardJob({ res }) {
     return `Rp ${minInJuta} - ${maxInJuta} Juta`;
   }
   return (
-    <div className="cardJobVacancies mb-5 p-5 md:mb-0 md:min-w-[48%] lg:min-w-[32%] border border-slate-300 rounded-lg group hover:bg-sky-100 hover:border-sky-300 cursor-pointer transition-all duration-200">
+    <div className="cardJobVacancies mb-5 p-5 md:mb-0 md:w-[48%] lg:w-[32%] border border-slate-300 rounded-lg group hover:bg-sky-100 hover:border-sky-300 cursor-pointer transition-all duration-200">
       <div className="header flex flex-wrap">
         <div className="header-image rounded-full w-20 h-20 bg-white shadow-md">
           <img
