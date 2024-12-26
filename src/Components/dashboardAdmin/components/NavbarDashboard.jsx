@@ -2,13 +2,11 @@
 
 import { Button, Navbar } from "flowbite-react";
 import { useLocation, useNavigate } from "react-router-dom";
-import LogoSiniLoker from "../../assets/siniLoker2.png";
+import LogoSiniLoker from "../../../assets/siniLoker2.png";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
-import { useContext } from "react";
-import { JobContext } from "../../context/JobContext";
 
-export default function Navbarr({ ...props }) {
+export default function NavbarDashboard({ ...props }) {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -45,19 +43,6 @@ export default function Navbarr({ ...props }) {
           </span>
         </div>
       </Navbar.Brand>
-      {Cookies.get("token") == undefined && (
-        <div className="flex md:order-2">
-          <Button
-            className="bg-blue-500 px-3"
-            onClick={() => {
-              navigate("/login");
-            }}
-          >
-            Masuk
-          </Button>
-          <Navbar.Toggle />
-        </div>
-      )}
       {Cookies.get("token") !== undefined && (
         <div
           className={`flex md:order-2 items-center cursor-pointer ${
@@ -71,17 +56,15 @@ export default function Navbarr({ ...props }) {
             alt={`profile-${username}`}
             className="w-20 hidden md:block"
           />
-          {/* <span className="hidden md:block ml-2 text-white font-semibold bg-blue-600 hover:bg-blue-800 cursor-pointer px-6 py-1 rounded-full">
-            Keluar
-          </span> */}
+
           <Navbar.Toggle />
           {isActiveProfile && (
             <div className="absolute bg-white top-14 md:right-3 md:w-40 text-center hidden md:flex md:flex-col border border-slate-100 rounded-md shadow-sm">
               <span
                 className="hover:text-blue-600"
-                onClick={() => navigate("/dashboard")}
+                onClick={() => navigate("/dashboard/profile")}
               >
-                dashboard
+                profile
               </span>
               <hr />
               <span
@@ -99,42 +82,6 @@ export default function Navbarr({ ...props }) {
           )}
         </div>
       )}
-
-      <Navbar.Collapse>
-        <Navbar.Link
-          onClick={() => navigate("/")}
-          className={`cursor-pointer text-base ${
-            location.pathname === "/" ? "text-blue-600 font-bold" : ""
-          }`}
-        >
-          Beranda
-        </Navbar.Link>
-        <Navbar.Link
-          onClick={() => navigate("/job-vacancies")}
-          className={`cursor-pointer text-base ${
-            location.pathname === "/job-vacancies"
-              ? "text-blue-600 font-bold"
-              : ""
-          }`}
-        >
-          Lowongan Kerja
-        </Navbar.Link>
-        <Navbar.Link
-          onClick={() => navigate("/about")}
-          className={`cursor-pointer text-base ${
-            location.pathname === "/about" ? "text-blue-600 font-bold" : ""
-          }`}
-        >
-          Tentang Kami
-        </Navbar.Link>
-        <Navbar.Link>
-          {Cookies.get("token") !== undefined && (
-            <div className="flex md:order-2">
-              <span className="block md:hidden text-red-500">Keluar</span>
-            </div>
-          )}
-        </Navbar.Link>
-      </Navbar.Collapse>
     </Navbar>
   );
 }
