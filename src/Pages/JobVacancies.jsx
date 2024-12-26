@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import JobSection from "../Components/jobSection/JobSection.jsx";
-import JobVacanciesSection from "../Components/jobVacanciesSection/JobVacanciesSection";
+import JobVacanciesJobSection from "../Components/jobVacanciesJobSection/JobVacanciesJobSection.jsx";
 import { JobContext } from "../context/JobContext.jsx";
 
 // DATA
@@ -78,7 +78,7 @@ const JobVacancies = () => {
     <JobContext.Provider value={JbCart}>
       <main>
         <JobSection />
-        <JobVacanciesSection />
+        <JobVacanciesJobSection />
       </main>
     </JobContext.Provider>
   );

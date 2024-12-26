@@ -3,7 +3,7 @@ import Home from "./Pages/Home";
 import Footer from "./Components/footer/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import JobVacancies from "./Pages/JobVacancies";
-import About from "./Components/about/About";
+import About from "./Pages/About";
 
 function App() {
   return (
