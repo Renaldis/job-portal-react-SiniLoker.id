@@ -8,8 +8,7 @@ import { JobContext } from "../../context/JobContext";
 
 export default function JobVacanciesJobSection() {
   const { filteredData } = useContext(JobContext);
-  console.log(filteredData);
-  const itemsPerPage = 6;
+  const itemsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
 
   // Reset halaman saat `filteredData` berubah
@@ -21,9 +20,6 @@ export default function JobVacanciesJobSection() {
   if (!filteredData || filteredData.length === 0) {
     return (
       <section id="jobVacanciesSection" className="mb-10">
-        <h1 className="ml-8 mt-10 text-xl font-semibold text-black">
-          Lowongan Kerja Terpopuler
-        </h1>
         <div className="text-center mt-5">Tidak ada lowongan tersedia</div>
       </section>
     );
@@ -47,7 +43,7 @@ export default function JobVacanciesJobSection() {
     return `Rp ${minInJuta} - ${maxInJuta} Juta`;
   }
   return (
-    <section id="jobVacanciesSection" className="mb-10">
+    <section id="jobVacanciesSection" className="my-10">
       <div className="p-4">
         <div className="flex flex-wrap gap-5 justify-center">
           {currentItems.map((res, idx) => (

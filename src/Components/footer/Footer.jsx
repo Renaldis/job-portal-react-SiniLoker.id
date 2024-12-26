@@ -11,31 +11,37 @@ export default function Footer() {
             sesuai keahlian dan perusahaan mencari kandidat terbaik.
           </p>
         </div>
-        <div className="logo flex items-start justify-center gap-5 text-slate-300 pt-6">
-          <a href="https://www.google.com/">
+        <div className="logo flex items-start justify-center gap-5 text-slate-300 pt-6 ">
+          <a href="https://www.google.com/" className="hover:text-white">
             <i className="fab fa-google text-2xl" />
           </a>
-          <a href="https://www.facebook.com/">
+          <a href="https://www.facebook.com/" className="hover:text-white">
             <i className="fab fa-facebook text-2xl" />
           </a>
-          <a href="https://www.instagram.com/renaldiisptr/">
+          <a
+            href="https://www.instagram.com/renaldiisptr/"
+            className="hover:text-white"
+          >
             <i className="fab fa-instagram text-2xl" />
           </a>
-          <a href="https://www.linkedin.com/in/renaldiisptr/">
+          <a
+            href="https://www.linkedin.com/in/renaldiisptr/"
+            className="hover:text-white"
+          >
             <i className="fab fa-linkedin text-2xl" />
           </a>
-          <a href="https://github.com/Renaldis">
+          <a href="https://github.com/Renaldis" className="hover:text-white">
             <i className="fab fa-github text-2xl" />
           </a>
         </div>
-        <div className="services flex items-start justify-center text-slate-100 gap-5 lg:w-1/3 pt-6 text-sm md:text-base">
-          <a href="#">
+        <div className="services flex items-start justify-center text-slate-200 gap-5 lg:w-1/3 pt-6 text-sm md:text-base">
+          <a href="#" className="hover:text-white">
             <span>Privacy Policy</span>
           </a>
-          <a href="#">
+          <a href="#" className="hover:text-white">
             <span>Terms of Service</span>
           </a>
-          <a href="#">
+          <a href="#" className="hover:text-white">
             <span>Contact Us</span>
           </a>
         </div>

@@ -18,13 +18,16 @@ export default function JobVacanciesSection() {
     );
   }
 
+  const itemsPerPage = 6;
+  const currentItems = filteredData.slice(1, itemsPerPage + 1);
+
   return (
     <section id="jobVacanciesSection" className="mb-10">
       <h1 className="ml-8 mt-10 text-xl font-semibold text-black">
         Lowongan Kerja Terpopuler
       </h1>
       <div className="card w-[95%] mt-5 mx-auto md:flex md:flex-wrap md:justify-around md:gap-5">
-        {filteredData.map((res, index) => (
+        {currentItems.map((res, index) => (
           <CardJob key={index} res={res} />
         ))}
       </div>
