@@ -63,6 +63,18 @@ export default function Navbarr({ ...props }) {
             Tentang Kami
           </span>
         </Navbar.Link>
+        <Navbar.Link>
+          <span
+            onClick={() => navigate("/pagination")}
+            className={`cursor-pointer text-base ${
+              location.pathname === "/pagination"
+                ? "text-blue-600 font-bold"
+                : ""
+            }`}
+          >
+            Pagination
+          </span>
+        </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
   );
