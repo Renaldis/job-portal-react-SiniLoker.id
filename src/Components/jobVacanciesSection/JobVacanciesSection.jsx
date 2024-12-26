@@ -1,6 +1,7 @@
 import CardJob from "./CardJob";
 import { useContext, useState } from "react";
 import { JobContext } from "../../context/JobContext";
+import { Link } from "react-router-dom";
 
 export default function JobVacanciesSection() {
   const { filteredData } = useContext(JobContext);
@@ -28,9 +29,9 @@ export default function JobVacanciesSection() {
         ))}
       </div>
       <div className="flex items-center gap-5 justify-center ml-8 mt-3 text-lg font-normal text-blue-500 hover:text-blue-800 transition-all duration-200">
-        <a href="/job-vacancies">
+        <Link to="/job-vacancies">
           Lihat Lowongan Lain nya <i className="fas fa-arrow-right" />
-        </a>
+        </Link>
       </div>
     </section>
   );

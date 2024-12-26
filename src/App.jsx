@@ -4,8 +4,8 @@ import Footer from "./Components/footer/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import JobVacancies from "./Pages/JobVacancies";
 import About from "./Pages/About";
-import Paginations from "./Pages/Paginations";
 import GlobalJobProvider from "./context/GlobalJobProvider";
+import ErrNotFound from "./Pages/ErrNotFound";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/job-vacancies" element={<JobVacancies />} />
           <Route path="/about" element={<About />} />
-          <Route path="/paginations" element={<Paginations />} />
+          <Route path="*" element={<ErrNotFound />} />
         </Routes>
         <Footer />
       </GlobalJobProvider>
