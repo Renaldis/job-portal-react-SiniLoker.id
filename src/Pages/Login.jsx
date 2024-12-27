@@ -10,12 +10,19 @@ const Login = () => {
     email: "",
     password: "",
   });
-
+  const [errInput, setErrInput] = useState(false);
+  const [passwordLength, setPasswordLength] = useState(false);
   const handleInput = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
     setInput({ ...input, [name]: value });
+    setErrInput(false);
+    if (input.password.length >= 1 && input.password.length <= 8) {
+      setPasswordLength(true);
+    } else {
+      setPasswordLength(false);
+    }
   };
 
   const handleLogin = (e) => {
@@ -35,7 +42,7 @@ const Login = () => {
         Cookies.set("profileImg", data.user.image_url, { expires: 1 });
         navigate("/dashboard");
       })
-      .catch((err) => alert(err.message));
+      .catch((err) => setErrInput(true));
   };
 
   return (
@@ -59,7 +66,7 @@ const Login = () => {
               onChange={handleInput}
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-4">
             <label className="block text-gray-700 mb-2">Password</label>
             <input
               type="password"
@@ -68,8 +75,18 @@ const Login = () => {
               placeholder="********"
               name="password"
               onChange={handleInput}
+              min={8}
             />
           </div>
+          {passwordLength && (
+            <p className="text-red-600 -mt-2 mb-2">Minimum 8 Karakter</p>
+          )}
+          {errInput && (
+            <p className="text-red-600 -mt-2 mb-2">
+              Email atau Password Salah.
+            </p>
+          )}
+
           <button
             type="submit"
             className="w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-800"
