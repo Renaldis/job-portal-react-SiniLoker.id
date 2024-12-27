@@ -5,8 +5,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import LogoSiniLoker from "../../assets/siniLoker2.png";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
-import { useContext } from "react";
-import { JobContext } from "../../context/JobContext";
+
+import Swal from "sweetalert2";
 
 export default function Navbarr({ ...props }) {
   const location = useLocation();
@@ -28,6 +28,32 @@ export default function Navbarr({ ...props }) {
   const handleClick = () => {
     setIsActiveProfile(!isActiveProfile);
   };
+
+  const handleExit = () => {
+    Swal.fire({
+      title: "Do you want to exit?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Yes",
+      denyButtonText: "No",
+      customClass: {
+        actions: "my-actions",
+        cancelButton: "order-1 right-gap",
+        confirmButton: "order-2",
+        denyButton: "order-3",
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Cookies.remove("token");
+        Cookies.remove("userName");
+        Cookies.remove("profileImg");
+        navigate("/login");
+      } else if (result.isDenied) {
+        Swal.fire("Action cancelled", "", "info");
+      }
+    });
+  };
+
   return (
     <Navbar fluid rounded {...props}>
       <Navbar.Brand>
@@ -86,12 +112,7 @@ export default function Navbarr({ ...props }) {
               <hr />
               <span
                 className="hover:text-blue-600 text-red-700"
-                onClick={() => {
-                  Cookies.remove("token");
-                  Cookies.remove("userName");
-                  Cookies.remove("profileImg");
-                  navigate("/login");
-                }}
+                onClick={handleExit}
               >
                 Keluar
               </span>
@@ -129,7 +150,7 @@ export default function Navbarr({ ...props }) {
         </Navbar.Link>
         <Navbar.Link>
           {Cookies.get("token") !== undefined && (
-            <div className="flex md:order-2">
+            <div className="flex md:order-2" onClick={handleExit}>
               <span className="block md:hidden text-red-500">Keluar</span>
             </div>
           )}

@@ -34,7 +34,7 @@ export default function HeroSection() {
   }, [findLoc]);
 
   return (
-    <section id="hero" className="bg-blue-500 flex flex-row">
+    <section id="hero" className="bg-blue-500 flex flex-row pb-20 sm:pb-0">
       <div className="w-full h-[400px] md:h-full md:w-3/4 lg:w-1/2 flex flex-col justify-start mt-16 p-8 gap-8">
         <h1 className="text-2xl font-semibold text-center md:text-start md:text-4xl  text-white">
           Cari Kerja <span className="font-bold">#makin mudah</span> pake

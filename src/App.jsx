@@ -16,6 +16,10 @@ import Cookies from "js-cookie";
 import Dashboard from "./Components/dashboardAdmin/pages/Dashboard";
 import DeleteAccount from "./Pages/DeleteAccount";
 import LayoutDashboard from "./Components/dashboardAdmin/components/LayoutDashboard";
+import AsideRouter from "./Components/dashboardAdmin/components/asideRouter/AsideRouter";
+import DashboardProfile from "./Components/dashboardAdmin/pages/DashboardProfile";
+import DashboardListJob from "./Components/dashboardAdmin/pages/DashboardListJob";
+import DashboardJobForm from "./Components/dashboardAdmin/pages/DashboardJobForm";
 
 function App() {
   // custom route
@@ -79,6 +83,36 @@ function App() {
               <LayoutDashboard>
                 <DashboardRoute>
                   <Dashboard />
+                </DashboardRoute>
+              </LayoutDashboard>
+            }
+          />
+          <Route
+            path="/dashboard/list-job-vacancy"
+            element={
+              <LayoutDashboard>
+                <DashboardRoute>
+                  <DashboardListJob />
+                </DashboardRoute>
+              </LayoutDashboard>
+            }
+          />
+          <Route
+            path="/dashboard/list-job-vacancy/form"
+            element={
+              <LayoutDashboard>
+                <DashboardRoute>
+                  <DashboardJobForm />
+                </DashboardRoute>
+              </LayoutDashboard>
+            }
+          />
+          <Route
+            path="/dashboard/profile"
+            element={
+              <LayoutDashboard>
+                <DashboardRoute>
+                  <DashboardProfile />
                 </DashboardRoute>
               </LayoutDashboard>
             }

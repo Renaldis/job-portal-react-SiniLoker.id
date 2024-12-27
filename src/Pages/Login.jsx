@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const Login = () => {
 
     setInput({ ...input, [name]: value });
     setErrInput(false);
-    if (input.password.length >= 1 && input.password.length <= 8) {
+    if (input.password.length >= 1 && input.password.length < 7) {
       setPasswordLength(true);
     } else {
       setPasswordLength(false);
@@ -40,7 +41,16 @@ const Login = () => {
         Cookies.set("token", data.token, { expires: 1 });
         Cookies.set("userName", data.user.name, { expires: 1 });
         Cookies.set("profileImg", data.user.image_url, { expires: 1 });
-        navigate("/dashboard");
+        // Tampilkan SweetAlert2 untuk notifikasi sukses
+        Swal.fire({
+          title: "Login Berhasil!",
+          text: `Selamat datang, ${data.user.name}!`,
+          icon: "success",
+        }).then(() => {
+          // Redirect setelah user menutup alert
+          navigate("/dashboard");
+        });
+        // navigate("/dashboard");
       })
       .catch((err) => setErrInput(true));
   };

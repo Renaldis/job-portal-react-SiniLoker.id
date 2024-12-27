@@ -17,7 +17,7 @@ const Register = () => {
     const value = e.target.value;
 
     setInput({ ...input, [name]: value });
-    if (input.password.length >= 1 && input.password.length <= 8) {
+    if (input.password.length >= 1 && input.password.length < 7) {
       setPasswordLength(true);
     } else {
       setPasswordLength(false);

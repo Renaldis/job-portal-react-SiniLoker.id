@@ -1,13 +1,12 @@
 "use client";
 
-import { Button, Navbar } from "flowbite-react";
-import { useLocation, useNavigate } from "react-router-dom";
-import LogoSiniLoker from "../../../assets/siniLoker2.png";
+import { Navbar } from "flowbite-react";
+import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
-export default function NavbarDashboard({ ...props }) {
-  const location = useLocation();
+export default function NavbarDashboard({ pageName, ...props }) {
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
@@ -26,22 +25,36 @@ export default function NavbarDashboard({ ...props }) {
   const handleClick = () => {
     setIsActiveProfile(!isActiveProfile);
   };
+  const handleExit = () => {
+    Swal.fire({
+      title: "Do you want to exit?",
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: "Yes",
+      denyButtonText: "No",
+      customClass: {
+        actions: "my-actions",
+        cancelButton: "order-1 right-gap",
+        confirmButton: "order-2",
+        denyButton: "order-3",
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Cookies.remove("token");
+        Cookies.remove("userName");
+        Cookies.remove("profileImg");
+        navigate("/login");
+      } else if (result.isDenied) {
+        Swal.fire("Action cancelled", "", "info");
+      }
+    });
+  };
   return (
     <Navbar fluid rounded {...props}>
       <Navbar.Brand>
-        <div
-          onClick={() => navigate("/")}
-          className="flex items-center cursor-pointer"
-        >
-          <img
-            src={LogoSiniLoker}
-            className="mr-3 h-6 sm:h-9"
-            alt="Flowbite React Logo"
-          />
-          <span className="self-center whitespace-nowrap text-xl font-bold text-sky-600 dark:text-white">
-            SiniLoker.id
-          </span>
-        </div>
+        <span className="text-xl font-semibold text-slate-700 shadow-sm border border-slate-800 p-2 rounded-lg">
+          {pageName}
+        </span>
       </Navbar.Brand>
       {Cookies.get("token") !== undefined && (
         <div
@@ -50,14 +63,13 @@ export default function NavbarDashboard({ ...props }) {
           } `}
           onClick={handleClick}
         >
-          <span className="hidden md:block">{username}</span>
+          <span className="md:block">{username}</span>
           <img
             src={profile}
             alt={`profile-${username}`}
-            className="w-20 hidden md:block"
+            className="w-20 md:block"
           />
 
-          <Navbar.Toggle />
           {isActiveProfile && (
             <div className="absolute bg-white top-14 md:right-3 md:w-40 text-center hidden md:flex md:flex-col border border-slate-100 rounded-md shadow-sm">
               <span
@@ -69,12 +81,7 @@ export default function NavbarDashboard({ ...props }) {
               <hr />
               <span
                 className="hover:text-blue-600 text-red-700"
-                onClick={() => {
-                  Cookies.remove("token");
-                  Cookies.remove("userName");
-                  Cookies.remove("profileImg");
-                  navigate("/login");
-                }}
+                onClick={handleExit}
               >
                 Keluar
               </span>
