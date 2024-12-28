@@ -35,7 +35,7 @@ export default function Layout(props) {
         <div className="flex flex-col w-full border">
           <NavbarDashboard className="border-b-2" pageName={pageName} />
 
-          <main className="flex-1 p-4 h-[1000px]">{props.children}</main>
+          <main className="flex-1 h-[1000px]">{props.children}</main>
         </div>
       </div>
     </>

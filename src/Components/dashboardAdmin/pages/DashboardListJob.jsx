@@ -41,7 +41,7 @@ export default function DashboardListJob() {
   return (
     <section
       id="dashboardListJob"
-      className="p-1 md:p-5 flex flex-col flex-wrap md:w-full md:overflow-auto"
+      className="p-4 md:p-5 flex flex-col flex-wrap md:w-full md:overflow-auto"
     >
       <h1 className="text-sm md:text-xl font-bold">List Data Perusahaan</h1>
       <form className="my-3">
@@ -90,7 +90,7 @@ export default function DashboardListJob() {
           </div>
         </div>
       </form>
-      <div className="listJobTable overflow-y-scroll overflow-x-scroll h-[250px] sm:h-[300px] md:h-96 flex flex-wrap w-[100%]">
+      <div className="listJobTable overflow-y-scroll overflow-x-scroll h-[300px] md:h-[290px] lg:h-[400px] flex flex-wrap w-[100%]">
         <Table hoverable className="">
           <Table.Head>
             <Table.HeadCell>Logo</Table.HeadCell>

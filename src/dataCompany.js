@@ -5,6 +5,7 @@ const jobListings = [
     company_name: "Gojek",
     title: "Software Engineer",
     company_city: "Jakarta",
+    job_description: "",
     job_qualification:
       "Bachelor's degree in Computer Science or related field. Proficiency in Java or Python.",
     job_type: "Remote",
@@ -19,6 +20,7 @@ const jobListings = [
     company_name: "Bank Central Asia (BCA)",
     title: "Financial Analyst",
     company_city: "Jakarta",
+    job_description: "",
     job_qualification:
       "Bachelor's degree in Finance, Accounting, or related field. Strong analytical skills.",
     job_type: "On-Site",
@@ -33,6 +35,7 @@ const jobListings = [
     company_name: "Indofood",
     title: "Marketing Manager",
     company_city: "Jakarta",
+    job_description: "",
     job_qualification:
       "Bachelor's degree in Marketing, Business Administration, or related field. At least 5 years of experience.",
     job_type: "On-Site",
@@ -47,6 +50,7 @@ const jobListings = [
     company_name: "Unilever Indonesia",
     title: "Supply Chain Planner",
     company_city: "Surabaya",
+    job_description: "",
     job_qualification:
       "Bachelor's degree in Supply Chain, Business, or related field. Strong communication skills.",
     job_type: "On-Site",
@@ -61,6 +65,7 @@ const jobListings = [
     company_name: "Tokopedia",
     title: "Product Manager",
     company_city: "Jakarta",
+    job_description: "",
     job_qualification:
       "Bachelor's degree in Business, Computer Science, or related field. Experience in product management.",
     job_type: "Remote",
@@ -75,6 +80,7 @@ const jobListings = [
     company_name: "Pertamina",
     title: "Mechanical Engineer",
     company_city: "Balikpapan",
+    job_description: "",
     job_qualification:
       "Bachelor's degree in Mechanical Engineering. Knowledge of oil and gas operations is a plus.",
     job_type: "On-Site",
@@ -89,6 +95,7 @@ const jobListings = [
     company_name: "Perusahaan Gas Negara (PGN)",
     title: "HR Manager",
     company_city: "Jakarta",
+    job_description: "",
     job_qualification:
       "Bachelor's degree in Human Resources, Psychology, or related field. Strong leadership skills.",
     job_type: "On-Site",
@@ -103,6 +110,7 @@ const jobListings = [
     company_name: "Bank Mandiri",
     title: "Risk Management Analyst",
     company_city: "Jakarta",
+    job_description: "",
     job_qualification:
       "Bachelor's degree in Finance, Economics, or related field. Analytical skills and risk management experience.",
     job_type: "On-Site",
@@ -117,6 +125,7 @@ const jobListings = [
     company_name: "Astra International",
     title: "Business Development Manager",
     company_city: "Jakarta",
+    job_description: "",
     job_qualification:
       "Bachelor's degree in Business, Engineering, or related field. Strong project management experience.",
     job_type: "On-Site",
