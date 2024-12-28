@@ -36,10 +36,11 @@ const Login = () => {
         password,
       })
       .then((res) => {
-        console.log(res);
+        console.log(res.data);
         let data = res.data;
         Cookies.set("token", data.token, { expires: 1 });
         Cookies.set("userName", data.user.name, { expires: 1 });
+        Cookies.set("email", data.user.email, { expires: 1 });
         Cookies.set("profileImg", data.user.image_url, { expires: 1 });
         // Tampilkan SweetAlert2 untuk notifikasi sukses
         Swal.fire({

@@ -43,6 +43,7 @@ export default function NavbarDashboard({ pageName, ...props }) {
         Cookies.remove("token");
         Cookies.remove("userName");
         Cookies.remove("profileImg");
+        Cookies.remove("email");
         navigate("/login");
       } else if (result.isDenied) {
         Swal.fire("Action cancelled", "", "info");

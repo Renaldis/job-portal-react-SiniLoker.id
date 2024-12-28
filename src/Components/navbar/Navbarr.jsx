@@ -47,6 +47,7 @@ export default function Navbarr({ ...props }) {
         Cookies.remove("token");
         Cookies.remove("userName");
         Cookies.remove("profileImg");
+        Cookies.remove("email");
         navigate("/login");
       } else if (result.isDenied) {
         Swal.fire("Action cancelled", "", "info");
