@@ -52,7 +52,7 @@ export default function NavbarDashboard({ pageName, ...props }) {
   return (
     <Navbar fluid rounded {...props}>
       <Navbar.Brand>
-        <span className="text-xl font-semibold text-slate-700 shadow-sm border border-slate-800 p-2 rounded-lg">
+        <span className="md:text-base lg:text-xl font-semibold text-slate-700 shadow-sm border border-slate-800 p-2 rounded-lg text-sm">
           {pageName}
         </span>
       </Navbar.Brand>
@@ -71,13 +71,31 @@ export default function NavbarDashboard({ pageName, ...props }) {
           />
 
           {isActiveProfile && (
-            <div className="absolute bg-white top-14 md:right-3 md:w-40 text-center hidden md:flex md:flex-col border border-slate-100 rounded-md shadow-sm">
-              <span
-                className="hover:text-blue-600"
-                onClick={() => navigate("/dashboard/profile")}
+            <div
+              className={`absolute bg-white top-14 right-0 lg:right-3 w-40 text-center lg:flex lg:flex-col border border-slate-100 rounded-md shadow-sm${
+                location.pathname == "/dashboard/list-job-vacancy" &&
+                "w-96 right-1 z-50"
+              }`}
+            >
+              <div
+                className={`hover:text-blue-600 hover:bg-slate-200 lg:hidden ${
+                  location.pathname !== "/dashboard/list-job-vacancy" &&
+                  "hidden"
+                }`}
+                onClick={() => navigate("/dashboard")}
               >
-                profile
-              </span>
+                <span>Dashboard</span>
+              </div>
+              <hr />
+              <div>
+                <span
+                  className="hover:text-blue-600"
+                  onClick={() => navigate("/dashboard/profile")}
+                >
+                  Profile
+                </span>
+              </div>
+
               <hr />
               <span
                 className="hover:text-blue-600 text-red-700"

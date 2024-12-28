@@ -29,7 +29,7 @@ export default function Layout(props) {
 
   return (
     <>
-      <div className="flex flex-row h-screen">
+      <div className="flex flex-row h-screen overflow-hidden">
         <AsideRouter className="bg-slate-800 w-1/6 lg:w-1/6 border-r-2 border-gray-400 overflow-y-hidden" />
 
         <div className="flex flex-col w-full border">
