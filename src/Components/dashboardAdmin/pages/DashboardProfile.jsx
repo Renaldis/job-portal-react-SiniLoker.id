@@ -31,6 +31,9 @@ export default function DashboardProfile() {
       alert("Konfirmasi password tidak cocok dengan password baru.");
       return;
     }
+    alert("masih dalam tahap pengembangan");
+    setIsEditPassword(false);
+    return;
     axios
       .put(
         "https://final-project-api-alpha.vercel.app/api/change-password",
@@ -43,6 +46,11 @@ export default function DashboardProfile() {
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  const handleUpdateProfile = () => {
+    alert("masih dalam tahap pengembangan");
+    setIsEditProfile(false);
   };
   const handleInput = (e) => {
     const name = e.target.name;
@@ -92,7 +100,7 @@ export default function DashboardProfile() {
         </div>
 
         <div className={`w-full ${isEditProfile ? "block" : "hidden"}`}>
-          <form>
+          <form onClick={handleUpdateProfile}>
             <div className="flex flex-col w-[50%] mx-auto">
               <label>Profile Image Url</label>
               <input

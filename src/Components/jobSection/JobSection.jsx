@@ -4,20 +4,27 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import LocMenu from "./LocMenu";
+import VacancyMenu from "./VacancyMenu";
 
 export default function JobSection() {
   const [isActive, setIsActive] = useState(false);
+  const [isActiveVacancyMenu, setIsActiveVacancyMenu] = useState(false);
   const {
     handleSubmit,
     handleInputSearchChange,
     inputSearch,
-    handleInputFilterChange,
+    handleInputLocFilterChange,
+    handleInputVacancyFilterChange,
     errorSearching,
   } = useContext(JobContext);
 
   const handleClickLocMenu = (e) => {
     e.preventDefault();
     setIsActive(!isActive);
+  };
+  const handleClickVacancyMenu = (e) => {
+    e.preventDefault();
+    setIsActiveVacancyMenu(!isActiveVacancyMenu);
   };
 
   // untuk LocMenu
@@ -29,22 +36,40 @@ export default function JobSection() {
   };
 
   useEffect(() => {
-    handleInputFilterChange(findLoc);
+    handleInputLocFilterChange(findLoc);
   }, [findLoc]);
+
+  // untuk VacancyMenu
+  const [findVacancy, setFindVacancy] = useState("Semua Perusahaan");
+
+  const handleVacancyClick = (vacancy) => {
+    setFindVacancy(vacancy);
+    setIsActiveVacancyMenu(false);
+  };
+
+  useEffect(() => {
+    handleInputVacancyFilterChange(findVacancy);
+  }, [findVacancy]);
 
   return (
     <section id="hero" className="bg-blue-500">
-      <div className="w-full h-[400px] md:h-full justify-start p-14 gap-8">
-        <div className="cardFilter rounded-lg bg-white w-[95%] p-5 text-center">
+      <div className="w-full h-[100%] md:h-full justify-start p-14 gap-8">
+        <div className="cardFilter rounded-lg bg-white w-[100%] p-5 text-center">
           <form onSubmit={handleSubmit} className="input-search">
             <div className="flex flex-col md:flex-row gap-2 items-center justify-center">
               <input
                 type="text"
-                placeholder="Masukkan Kata Kunci"
+                placeholder="Masukkan Kata Kunci berdasarkan nama pekerjaan"
                 className="w-[100%] sm:w-[50%] rounded-lg"
                 name="input-search"
                 value={inputSearch}
                 onChange={(e) => handleInputSearchChange(e.target.value)}
+              />
+              <VacancyMenu
+                handleClickVacancyMenu={handleClickVacancyMenu}
+                handleVacancyClick={handleVacancyClick}
+                isActiveVacancyMenu={isActiveVacancyMenu}
+                findVacancy={findVacancy}
               />
               <LocMenu
                 handleClick={handleClickLocMenu}
@@ -53,18 +78,19 @@ export default function JobSection() {
                 findLoc={findLoc}
               />
               <button
-                className="group bg-blue-500 hover:bg-blue-800 p-2 rounded-xl"
+                className="group flex w-full sm:w-[50%] md:w-[50px] justify-center gap-2 bg-blue-500 hover:bg-blue-800 p-2 rounded-xl text-slate-100"
                 type="submit"
               >
                 <FontAwesomeIcon
                   icon={faMagnifyingGlass}
                   size="lg"
-                  className="text-slate-300 group-hover:text-slate-100"
+                  className="text-slate-100 group-hover:text-slate-100"
                 />
+                <span className="md:hidden">Cari</span>
               </button>
             </div>
           </form>
-          <div className="favorit-search mt-5 flex flex-wrap gap-3 items-center justify-center">
+          <div className="favorit-search mt-5 sm:flex flex-wrap gap-3 items-center justify-center hidden">
             <span className="text-sm">
               <strong>Paling sering dicari : </strong>
             </span>

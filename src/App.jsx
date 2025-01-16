@@ -20,6 +20,8 @@ import AsideRouter from "./Components/dashboardAdmin/components/asideRouter/Asid
 import DashboardProfile from "./Components/dashboardAdmin/pages/DashboardProfile";
 import DashboardListJob from "./Components/dashboardAdmin/pages/DashboardListJob";
 import DashboardJobForm from "./Components/dashboardAdmin/pages/DashboardJobForm";
+import JobVacancyDetail from "./Components/jobVacancyDetail/JobVacancyDetail";
+import DashboardEditVacancy from "./Components/dashboardAdmin/pages/DashboardEditVacancy";
 
 function App() {
   // custom route
@@ -54,6 +56,14 @@ function App() {
             element={
               <Layout>
                 <JobVacancies />
+              </Layout>
+            }
+          />
+          <Route
+            path="/job-vacancies/:id"
+            element={
+              <Layout>
+                <JobVacancyDetail />
               </Layout>
             }
           />
@@ -98,11 +108,21 @@ function App() {
             }
           />
           <Route
-            path="/dashboard/list-job-vacancy/form"
+            path="/dashboard/list-job-vacancy/create"
             element={
               <LayoutDashboard>
                 <DashboardRoute>
                   <DashboardJobForm />
+                </DashboardRoute>
+              </LayoutDashboard>
+            }
+          />
+          <Route
+            path="/dashboard/list-job-vacancy/edit/:id"
+            element={
+              <LayoutDashboard>
+                <DashboardRoute>
+                  <DashboardEditVacancy />
                 </DashboardRoute>
               </LayoutDashboard>
             }

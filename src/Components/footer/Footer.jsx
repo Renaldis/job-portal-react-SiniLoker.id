@@ -12,25 +12,39 @@ export default function Footer() {
           </p>
         </div>
         <div className="logo flex items-start justify-center gap-5 text-slate-300 pt-6 ">
-          <a href="https://www.google.com/" className="hover:text-white">
+          <a
+            href="https://www.google.com/"
+            target="_blank"
+            className="hover:text-white"
+          >
             <i className="fab fa-google text-2xl" />
           </a>
-          <a href="https://www.facebook.com/" className="hover:text-white">
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            className="hover:text-white"
+          >
             <i className="fab fa-facebook text-2xl" />
           </a>
           <a
             href="https://www.instagram.com/renaldiisptr/"
+            target="_blank"
             className="hover:text-white"
           >
             <i className="fab fa-instagram text-2xl" />
           </a>
           <a
             href="https://www.linkedin.com/in/renaldiisptr/"
+            target="_blank"
             className="hover:text-white"
           >
             <i className="fab fa-linkedin text-2xl" />
           </a>
-          <a href="https://github.com/Renaldis" className="hover:text-white">
+          <a
+            href="https://github.com/Renaldis"
+            target="_blank"
+            className="hover:text-white"
+          >
             <i className="fab fa-github text-2xl" />
           </a>
         </div>

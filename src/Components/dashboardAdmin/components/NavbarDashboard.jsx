@@ -68,7 +68,7 @@ export default function NavbarDashboard({ pageName, ...props }) {
           <img
             src={profile}
             alt={`profile-${username}`}
-            className="w-20 md:block"
+            className="w-14 md:block"
           />
 
           {isActiveProfile && (

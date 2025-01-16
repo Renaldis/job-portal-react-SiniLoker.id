@@ -1,5 +1,5 @@
 import CardJob from "./CardJob";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { JobContext } from "../../context/JobContext";
 import { Link } from "react-router-dom";
 
@@ -19,7 +19,7 @@ export default function JobVacanciesSection() {
   }
 
   const itemsPerPage = 6;
-  const currentItems = filteredData.slice(1, itemsPerPage + 1);
+  const currentItems = filteredData.slice(0, itemsPerPage);
 
   return (
     <section id="jobVacanciesSection" className="mb-10">

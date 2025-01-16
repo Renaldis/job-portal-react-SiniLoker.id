@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import NavbarDashboard from "./NavbarDashboard";
 import AsideRouter from "./asideRouter/AsideRouter";
 import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function Layout(props) {
   const [pageName, setPageName] = useState("Dashboard");
+  const { id } = useParams();
 
   const location = useLocation();
 
@@ -19,8 +21,11 @@ export default function Layout(props) {
       case "/dashboard/list-job-vacancy":
         setPageName("List Data Perusahaan");
         break;
-      case "/dashboard/list-job-vacancy/form":
+      case "/dashboard/list-job-vacancy/create":
         setPageName("Tambah Data Baru");
+        break;
+      case `/dashboard/list-job-vacancy/edit/${id}`:
+        setPageName("Edit Data Lowongan Kerja");
         break;
       default:
         setPageName("");
@@ -35,7 +40,7 @@ export default function Layout(props) {
         <div className="flex flex-col w-full border">
           <NavbarDashboard className="border-b-2" pageName={pageName} />
 
-          <main className="flex-1 h-[1000px]">{props.children}</main>
+          <main className="flex-1 h-screen">{props.children}</main>
         </div>
       </div>
     </>

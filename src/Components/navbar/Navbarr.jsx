@@ -96,7 +96,7 @@ export default function Navbarr({ ...props }) {
           <img
             src={profile}
             alt={`profile-${username}`}
-            className="w-20 hidden md:block"
+            className="w-14 hidden md:block"
           />
           {/* <span className="hidden md:block ml-2 text-white font-semibold bg-blue-600 hover:bg-blue-800 cursor-pointer px-6 py-1 rounded-full">
             Keluar
@@ -148,6 +148,16 @@ export default function Navbarr({ ...props }) {
           }`}
         >
           Tentang Kami
+        </Navbar.Link>
+        <Navbar.Link>
+          {Cookies.get("token") !== undefined && (
+            <div
+              className="flex md:order-2"
+              onClick={() => navigate("/dashboard")}
+            >
+              <span className="block md:hidden">Dashboard</span>
+            </div>
+          )}
         </Navbar.Link>
         <Navbar.Link>
           {Cookies.get("token") !== undefined && (

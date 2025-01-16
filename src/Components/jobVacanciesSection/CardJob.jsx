@@ -1,6 +1,8 @@
 import CardJobType from "./CardJobType";
+import { useNavigate } from "react-router-dom";
 
 export default function CardJob({ res }) {
+  const navigate = useNavigate();
   function formatSalaryRange(salary_min, salary_max) {
     const minInJuta = (salary_min / 1000000).toFixed(0);
     const maxInJuta = (salary_max / 1000000).toFixed(0);
@@ -38,12 +40,13 @@ export default function CardJob({ res }) {
               {formatSalaryRange(res.salary_min, res.salary_max)}
             </span>
           </div>
-          <a
-            href="#"
+          <button
+            onClick={() => navigate(`/job-vacancies/${res._id}`)}
+            value={res._id}
             className="px-4 py-2 bg-blue-500 rounded-lg text-sm text-slate-50 hover:bg-blue-800 transition-all duration-200"
           >
             Lihat Detail
-          </a>
+          </button>
         </div>
       </div>
     </div>

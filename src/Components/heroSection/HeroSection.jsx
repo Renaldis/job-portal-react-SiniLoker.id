@@ -12,7 +12,7 @@ export default function HeroSection() {
     handleSubmit,
     handleInputSearchChange,
     inputSearch,
-    handleInputFilterChange,
+    handleInputLocFilterChange,
     errorSearching,
   } = useContext(JobContext);
 
@@ -30,7 +30,7 @@ export default function HeroSection() {
   };
 
   useEffect(() => {
-    handleInputFilterChange(findLoc);
+    handleInputLocFilterChange(findLoc);
   }, [findLoc]);
 
   return (

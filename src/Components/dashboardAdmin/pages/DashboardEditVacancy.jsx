@@ -1,13 +1,15 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useContext } from "react";
 import { JobContext } from "../../../context/JobContext";
+import { useParams } from "react-router-dom";
 
-export default function DashboardJobForm() {
-  const { newFetchStatus } = useContext(JobContext);
+export default function DashboardEditVacancy() {
+  const { newFetchStatus, data } = useContext(JobContext);
+  const { id } = useParams();
   const navigate = useNavigate();
   const [input, setInput] = useState({
     title: "",
@@ -23,22 +25,9 @@ export default function DashboardJobForm() {
     job_status: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleUpdate = (e) => {
     e.preventDefault();
     console.log(e);
-    let {
-      title,
-      company_name,
-      company_city,
-      company_image_url,
-      salary_min,
-      salary_max,
-      job_description,
-      job_qualification,
-      job_type,
-      job_tenure,
-      job_status,
-    } = input;
 
     const token = Cookies.get("token");
     if (token == undefined) {
@@ -46,32 +35,18 @@ export default function DashboardJobForm() {
     }
 
     axios
-      .post(
-        "https://final-project-api-alpha.vercel.app/api/jobs",
-        {
-          title,
-          company_name,
-          company_city,
-          company_image_url,
-          salary_min,
-          salary_max,
-          job_description,
-          job_qualification,
-          job_type,
-          job_tenure,
-          job_status,
-        },
-        { headers: { Authorization: "Bearer " + token } }
-      )
+      .put(`https://final-project-api-alpha.vercel.app/api/jobs/${id}`, input, {
+        headers: { Authorization: "Bearer " + token },
+      })
       .then((res) => {
         const data = res.data;
         console.log(data);
+        newFetchStatus();
         Swal.fire({
           title: "Sukses!",
-          text: "Lowongan kerja berhasil ditambahkan.",
+          text: "Lowongan kerja telah berubah.",
           icon: "success",
         }).then(() => {
-          newFetchStatus();
           navigate("/dashboard/list-job-vacancy");
         });
       })
@@ -86,7 +61,7 @@ export default function DashboardJobForm() {
             window.location.href = "/login";
           });
         } else {
-          console.err("Error lainnya:", err);
+          console.error("Error lainnya:", err);
         }
       });
   };
@@ -96,11 +71,27 @@ export default function DashboardJobForm() {
 
     setInput({ ...input, [name]: value });
   };
+
+  useEffect(() => {
+    axios
+      .get(`https://final-project-api-alpha.vercel.app/api/jobs/${id}`, {
+        headers: { Authorization: "Bearer " + Cookies.get("token") },
+      })
+      .then((res) => {
+        setInput(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
   return (
-    <section id="dashboardJobForm" className="overflow-auto p-4 h-[100%] pb-24">
+    <section
+      id="dashboardEditVacancy"
+      className="overflow-auto p-4 h-[100%] pb-32 md:pb-24"
+    >
       <div className="p-3 md:p-5 w-[90%] mx-auto border flex flex-col items-center border-gray-400 text-white shadow-md bg-slate-700 rounded-md">
-        <h1 className="text-xl md:text-2xl">Buat Lowongan Kerja Baru</h1>
-        <form className="py-2 w-full" onSubmit={handleSubmit}>
+        <h1 className="text-xl md:text-2xl">Edit Lowongan Kerja</h1>
+        <form className="py-2 w-full" onSubmit={handleUpdate}>
           <div className="flex flex-col gap-1 py-1 ">
             <label>Job Title</label>
             <input
@@ -237,7 +228,7 @@ export default function DashboardJobForm() {
               type="submit"
               className="bg-blue-500 py-2 rounded-lg hover:bg-blue-800 hover:text-slate-50 transition-all duration-200"
             >
-              Buat Lowongan
+              Update Lowongan
             </button>
           </div>
         </form>

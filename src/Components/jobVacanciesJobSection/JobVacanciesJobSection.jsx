@@ -5,18 +5,18 @@ import { useState, useEffect } from "react";
 import CardJobType from "./CardJobType";
 import { useContext } from "react";
 import { JobContext } from "../../context/JobContext";
+import { useNavigate } from "react-router-dom";
 
 export default function JobVacanciesJobSection() {
-  const { filteredData } = useContext(JobContext);
+  const navigate = useNavigate();
+  const { filteredData, formatSalaryRange } = useContext(JobContext);
   const itemsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Reset halaman saat `filteredData` berubah
   useEffect(() => {
     setCurrentPage(1);
   }, [filteredData]);
 
-  // Cek jika data tersedia dan bukan null
   if (!filteredData || filteredData.length === 0) {
     return (
       <section id="jobVacanciesSection" className="mb-10">
@@ -25,10 +25,8 @@ export default function JobVacanciesJobSection() {
     );
   }
 
-  // Menghitung total halaman
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
-  // Mengambil data untuk halaman saat ini
   const currentItems = filteredData.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
@@ -36,20 +34,14 @@ export default function JobVacanciesJobSection() {
 
   const onPageChange = (page) => setCurrentPage(page);
 
-  function formatSalaryRange(salary_min, salary_max) {
-    const minInJuta = (salary_min / 1000000).toFixed(0);
-    const maxInJuta = (salary_max / 1000000).toFixed(0);
-
-    return `Rp ${minInJuta} - ${maxInJuta} Juta`;
-  }
   return (
-    <section id="jobVacanciesSection" className="my-10">
-      <div className="p-4">
-        <div className="flex flex-wrap gap-5 justify-center">
+    <section id="jobVacanciesSection" className="my-5">
+      <div className="p-2">
+        <div className="flex flex-wrap gap-4 justify-center">
           {currentItems.map((res, idx) => (
             <div
               key={idx}
-              className="cardJobVacancies mb-5 p-5 md:mb-0 md:w-[48%] lg:w-[32%] border border-slate-300 rounded-lg group hover:bg-sky-100 hover:border-sky-300 cursor-pointer transition-all duration-200"
+              className="cardJobVacancies p-5 md:mb-0 md:w-[48%] lg:w-[32%] border border-slate-300 rounded-lg group hover:bg-sky-100 hover:border-sky-300 cursor-pointer transition-all duration-200"
             >
               <div className="header flex flex-wrap">
                 <div className="header-image rounded-full w-20 h-20 bg-white shadow-md">
@@ -60,8 +52,16 @@ export default function JobVacanciesJobSection() {
                   />
                 </div>
                 <div className="header-title ml-4">
-                  <h1 className="text-blue-700">{res.company_name}</h1>
-                  <h2 className="font-semibold">{res.title}</h2>
+                  <h1 className="text-blue-700">
+                    {res.company_name.length > 25
+                      ? res.company_name.slice(0, 25) + "..."
+                      : res.company_name}
+                  </h1>
+                  <h2 className="font-semibold">
+                    {res.title.length > 25
+                      ? res.title.slice(0, 25) + "..."
+                      : res.title}
+                  </h2>
                   <div className="text-slate-500">
                     <i className="fas fa-map-marker-alt" />
                     <span> {res.company_city}</span>
@@ -80,12 +80,13 @@ export default function JobVacanciesJobSection() {
                       {formatSalaryRange(res.salary_min, res.salary_max)}
                     </span>
                   </div>
-                  <a
-                    href="#"
-                    className="px-4 py-2 bg-blue-500 rounded-lg text-sm text-slate-50 hover:bg-blue-800 transition-all duration-200"
+                  <button
+                    onClick={() => navigate(`/job-vacancies/${res._id}`)}
+                    value={res._id}
+                    className="px-2 py-2 ml-2 md:px-4 mdpy-2 bg-blue-500 rounded-lg text-sm text-slate-50 hover:bg-blue-800 transition-all duration-200"
                   >
                     Lihat Detail
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

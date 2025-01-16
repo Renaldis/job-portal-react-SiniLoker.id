@@ -23,7 +23,7 @@ export default function LocMenu({
   return (
     <div>
       <button
-        className="w-[50%] flex items-center border border-slate-500 mt-3 text-slate-500 rounded-lg px-4 py-2 justify-between"
+        className="w-[100%] md:w-[50%] flex items-center border border-slate-500 mt-3 text-slate-500 rounded-lg px-4 py-2 justify-between"
         onClick={handleClick}
         aria-haspopup="true"
         aria-expanded={isActive}

@@ -22,15 +22,14 @@ export default function LocMenu({
 
   return (
     <>
-      <div className="border rounded-lg w-[50%] md:w-[30%] py-2 border-slate-500">
+      <div className="border rounded-lg w-[100%] sm:w-[50%] md:w-[30%] py-2 border-slate-500">
         <button
-          className=""
           onClick={handleClick}
           aria-haspopup="true"
           aria-expanded={isActive}
         >
           <i className="fas fa-map-marker-alt mr-2 text-slate-950"></i>
-          <span>{findLoc}</span>
+          <span>{findLocs}</span>
           <i className={IClasses}></i>
         </button>
         {isActive && (
@@ -40,7 +39,7 @@ export default function LocMenu({
           >
             <div
               className="border-b p-2 hover:bg-gray-100 cursor-pointer"
-              onClick={() => handleLocationClick("Semua Lokasi")}
+              onClick={() => handleLocationClick("Semua lokasi")}
             >
               Semua Lokasi
             </div>

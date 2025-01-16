@@ -72,10 +72,10 @@ export default function AsideRouter({ ...props }) {
           </div>
           <div
             className={`w-full p-2 hover:bg-slate-700 hover:text-white rounded-md cursor-pointer ${
-              location.pathname === "/dashboard/list-job-vacancy/form" &&
+              location.pathname === "/dashboard/list-job-vacancy/create" &&
               "bg-slate-700 text-white"
             } flex items-center gap-2 justify-center md:justify-start`}
-            onClick={() => navigate("/dashboard/list-job-vacancy/form")}
+            onClick={() => navigate("/dashboard/list-job-vacancy/create")}
           >
             <i className="fas fa-plus-square"></i>
             <h1 className="hidden md:block">Tambah Data Baru</h1>
